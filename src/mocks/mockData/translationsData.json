@@ -31,7 +31,12 @@
         "gridColumnEntryNo": "Entry No",
         "gridColumnCargoControlNo": "Cargo Control No",
         "gridColumnStatus": "Status",
-        "gridColumnCurrentMilestone": "Current Milestone"
+        "gridColumnCurrentMilestone": "Current Milestone",
+        "invoiceTableTitle": "Invoices",
+        "invoiceTableDate": "Date",
+        "invoiceTableAmount": "Amount",
+        "invoiceTableStatus": "Status",
+        "invoiceTableDueDate": "Due Date"
     },
     "fr": {
         "dashboardTitle": "Tableau de bord",
