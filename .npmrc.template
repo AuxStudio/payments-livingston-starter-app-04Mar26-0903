@@ -1,0 +1,8 @@
+registry=https://pkgs.dev.azure.com/livingstonintl/Enterprise/_packaging/lii-dds-npm/npm/registry/
+always-auth=true
+
+; begin auth token
+//pkgs.dev.azure.com/livingstonintl/Enterprise/_packaging/lii-dds-npm/npm/registry/:username=${AZURE_NPM_USERNAME}
+//pkgs.dev.azure.com/livingstonintl/Enterprise/_packaging/lii-dds-npm/npm/registry/:_password=${AZURE_NPM_PASSWORD}
+//pkgs.dev.azure.com/livingstonintl/Enterprise/_packaging/lii-dds-npm/npm/registry/:email=${AZURE_NPM_EMAIL}
+; end auth token

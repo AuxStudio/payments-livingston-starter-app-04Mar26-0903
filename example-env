@@ -1,0 +1,13 @@
+# Okta
+VITE_OKTA_ENABLED=true
+VITE_OKTA_CLIENT_ID=<YOUR KEY HERE>
+VITE_OKTA_ISSUER=https://livingstonintl.okta.com
+VITE_OKTA_TESTING_DISABLEHTTPSCHECK=true
+
+# API
+VITE_API_BASE_URL=http://localhost:5000/api
+
+# Other
+VITE_PUBLIC_URL=http://localhost:3000
+VITE_ENV_NAME=dev # This is configured in pipelines to match the branch i.e. qa, uat, main
+VITE_DIGITAL_DESIGN_LATEST_CSS=https://dds-react-wiki-dev.livingston.com/static/main-v3.css

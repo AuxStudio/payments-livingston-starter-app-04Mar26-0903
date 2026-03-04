@@ -1,0 +1,79 @@
+/* BUCH */
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-Buch.woff2') format('woff2'),
+        url('fonts/Sohne-Buch.woff') format('woff'),
+        url('fonts/Sohne-Buch.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-BuchKursiv.woff2') format('woff2'),
+        url('fonts/Sohne-BuchKursiv.woff') format('woff'),
+        url('fonts/Sohne-BuchKursiv.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* KRAFTIG */
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-Kraftig.woff2') format('woff2'),
+        url('fonts/Sohne-Kraftig.woff') format('woff'),
+        url('fonts/Sohne-Kraftig.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-KraftigKursiv.woff2') format('woff2'),
+        url('fonts/Sohne-KraftigKursiv.woff') format('woff'),
+        url('fonts/Sohne-KraftigKursiv.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* HALBFETT  */
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-Halbfett.woff2') format('woff2'),
+        url('fonts/Sohne-Halbfett.woff') format('woff'),
+        url('fonts/Sohne-Halbfett.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-HalbfettKursiv.woff2') format('woff2'),
+        url('fonts/Sohne-HalbfettKursiv.woff') format('woff'),
+        url('fonts/Sohne-HalbfettKursiv.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* DREIVIERTELFETT */
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-Dreiviertelfett.woff2') format('woff2'),
+        url('fonts/Sohne-Dreiviertelfett.woff') format('woff'),
+        url('fonts/Sohne-Dreiviertelfett.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Sohne';
+    src: url('fonts/Sohne-DreiviertelfettKursiv.woff2') format('woff2'),
+        url('fonts/Sohne-DreiviertelfettKursiv.woff') format('woff'),
+        url('fonts/Sohne-DreiviertelfettKursiv.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}

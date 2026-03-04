@@ -1,0 +1,12 @@
+/* Save any custom global styles here unique for your application */
+body {
+    overflow: hidden;
+}
+
+/* Preferably keep this file minimal and contact the DDS team for advice to discuss any additions to the globals DDS */
+/* Example to add a background image to the welcome screen:
+.welcome-screen {
+    background: url('/images/welcome-bg/welcome-bg-lg.png') no-repeat center center;
+    background-size: cover;
+}
+*/

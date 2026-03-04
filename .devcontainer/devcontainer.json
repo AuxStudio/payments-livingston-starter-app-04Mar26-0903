@@ -1,0 +1,13 @@
+{
+    "name": "Livingston React App",
+    "forwardPorts": [3000],
+    "portsAttributes": {
+        "3000": {
+            "label": "Application",
+            "onAutoForward": "openBrowser",
+            "visibility": "public"
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/setup-npmrc.sh && npm install",
+    "postStartCommand": "bash .devcontainer/watch-repo.sh & npm run dev"
+}
