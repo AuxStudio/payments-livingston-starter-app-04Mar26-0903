@@ -18,7 +18,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => (
             <span className='badge badge-circular badge-info me-3'>
                 <FontAwesomeIcon icon={faHouseChimney as IconDefinition} />
             </span>
-            <h1 className='mb-0'>{title}</h1>
+            <h1 className='mb-0'>My payment invoices</h1>
         </div>
     </div>
 );
