@@ -8,87 +8,38 @@ import { useEffect, useRef, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Grid, GridColumn as Column, GridCellProps, GridDataStateChangeEvent, GridCustomHeaderCellProps } from '@progress/kendo-react-grid';
+import { Grid, GridColumn as Column, GridCellProps, GridDataStateChangeEvent } from '@progress/kendo-react-grid';
 import { State } from '@progress/kendo-data-query';
 import { useKendoResponsiveColWidths } from 'livingston-npm-components';
-import { HeaderThElement } from '@progress/kendo-react-data-tools';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { useLazyClearancesQuery } from '@/store/api/clearancesApi';
 import { OverlaySpinner } from '@/components/OverlaySpinner';
 import ErrorPage from '@/components/ErrorPage';
 import { useTranslation } from '@/utils/hooks/useTranslation';
 
-const EntryNoCell = (props: GridCellProps) => {
+const ActionCell = (props: GridCellProps) => {
     return (
-        <td style={{ paddingLeft: '34px' }}>
-            <a href='/#' onClick={(e) => e.preventDefault()}>
-                {props.dataItem.EntryNo}
-            </a>
+        <td>
+            <Button variant='link' onClick={() => alert('Pay now')}>Pay now</Button>
+            <Button variant='link' onClick={() => alert('Dispute')}>Dispute</Button>
+            <Button variant='link' onClick={() => alert('Show details')}>Show details</Button>
         </td>
     );
-};
-
-const EntryNoHeader = (props: GridCustomHeaderCellProps) => {
-    return (
-        <HeaderThElement columnId={props.thProps?.columnId || ''} {...props.thProps} style={{ paddingLeft: '34px' }}>
-            {props.title}
-        </HeaderThElement>
-    );
-};
-
-const StatusCell = (props: GridCellProps) => {
-    const status = props.dataItem.Status;
-    let badge = null;
-
-    if (status === 'In progress') {
-        badge = <span className='badge badge-pill badge-info'>In progress</span>;
-    } else if (status === 'Completed') {
-        badge = <span className='badge badge-pill badge-success'>Completed</span>;
-    } else if (status === 'On hold') {
-        badge = (
-            <span className='badge badge-pill badge-danger'>
-                <FontAwesomeIcon icon={faInfoCircle as IconDefinition} className='me-1' />
-                On hold
-            </span>
-        );
-    }
-
-    return <td>{badge}</td>;
 };
 
 const RecentClearancesCard = () => {
     const gridRef = useRef(null);
     const translate = useTranslation();
     const columns = [
-        {
-            field: 'EntryNo',
-            title: translate('gridColumnEntryNo'),
-            minWidth: 160,
-            cell: { data: EntryNoCell, headerCell: EntryNoHeader }
-        },
-        {
-            field: 'CargoControlNo',
-            title: translate('gridColumnCargoControlNo'),
-            minWidth: 180
-        },
-        {
-            field: 'Status',
-            title: translate('gridColumnStatus'),
-            minWidth: 120,
-            cell: { data: StatusCell }
-        },
-        {
-            field: 'CurrentMilestone',
-            title: translate('gridColumnCurrentMilestone'),
-            minWidth: 180
-        }
+        { field: 'InvoiceNo', title: translate('invoiceNumber'), minWidth: 160 },
+        { field: 'Date', title: translate('date'), minWidth: 120 },
+        { field: 'DueDate', title: translate('dueDate'), minWidth: 120 },
+        { field: 'Status', title: translate('status'), minWidth: 120 },
+        { field: 'Actions', title: translate('actions'), minWidth: 200, cell: ActionCell }
     ];
     const { setWidth } = useKendoResponsiveColWidths(gridRef, columns);
     const initialDataState: State = {
         take: 10,
-        skip: 0,
-        sort: []
+        skip: 0
     };
     const [dataState, setDataState] = useState<State>(initialDataState);
     const [fetchClearances, { data: clearances, isLoading, isFetching, error }] = useLazyClearancesQuery();
@@ -102,15 +53,14 @@ const RecentClearancesCard = () => {
 
     const gridIsLoading = isLoading || isFetching;
 
-    const handleDataStateChange = async (e: GridDataStateChangeEvent) => {
-        // console.log('dataState', e.dataState);
+    const handleDataStateChange = (e: GridDataStateChangeEvent) => {
         setDataState(e.dataState);
     };
 
     return (
         <Card className='dashboard-layout-table flex-fill'>
             <Card.Header>
-                <h4>{translate('recentClearancesCardTitle')}</h4>
+                <h4>{translate('recentInvoicesCardTitle')}</h4>
             </Card.Header>
             <Card.Body className='p-0 flex-fill overflow-auto position-relative'>
                 <div className='table-wrapper w-100'>
@@ -130,23 +80,15 @@ const RecentClearancesCard = () => {
                             onDataStateChange={handleDataStateChange}
                             className='border-0'
                         >
-                            {columns.map((column, index) => {
-                                return (
-                                    <Column
-                                        key={index}
-                                        field={column.field}
-                                        title={column.title}
-                                        width={setWidth(column)}
-                                        cells={column.cell}
-                                    />
-                                );
-                            })}
+                            {columns.map((column, index) => (
+                                <Column key={index} field={column.field} title={column.title} width={setWidth(column)} />
+                            ))}
                         </Grid>
                     )}
                 </div>
             </Card.Body>
             <Card.Footer>
-                <Button variant='secondary'>{translate('recentClearancesCardButtonLabel')}</Button>
+                <Button variant='secondary'>{translate('viewAllInvoices')}</Button>
             </Card.Footer>
         </Card>
     );
